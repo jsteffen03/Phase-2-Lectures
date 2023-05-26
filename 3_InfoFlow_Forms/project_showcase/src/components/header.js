@@ -1,13 +1,10 @@
-import { useState } from "react";
-function Header(){
-    const [mode, setMode] = useState(true)
-    function handleClick(){
-        setMode(!mode)
-    }
+function Header({mode,handleClick, fetchData}){
+    
     return(
     <>
         <div>Header</div>
-        {mode?  <button className={"Dark"} onClick={()=>setMode(!mode)}>Dark</button>:  <button className={"Light"} onClick={handleClick}>Light</button>}
+        <button onClick={fetchData}>Get Data</button>
+        {mode?  <button className={"Dark"} onClick={handleClick}>Dark</button>:  <button className={"Light"} onClick={handleClick}>Light</button>}
     </>
     )
 }

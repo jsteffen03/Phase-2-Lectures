@@ -1,15 +1,34 @@
-function ProjectForm(){
+import { useState } from "react";
+function ProjectForm({addToProject}){
+    const [name,setName] = useState("")
+    const [description, setDescription] = useState("")
+    const [phase, setPhase] = useState("")
+
     function submit(e){
         e.preventDefault()
         console.log("In Submit")
+        const new_project = {
+            name: name,
+            about:description,
+            phase: phase,
+            image: "",
+            link: ""
+        }
+        console.log(new_project)
+        setName("")
+        setPhase("")
+        setDescription("")
+        addToProject(new_project)
     }
     return(
         <form className = "form" onSubmit={submit}>
-            <label>Test1</label>
-            <input onChange ={()=>console.log("Changing")}></input>
-            <label>Test2</label>
-            <input></input>
-            <button type="submit" onClick={()=>{console.log("Click")}}>Button</button>
+            <label>Name</label>
+            <input onChange={(e)=>setName(e.target.value)} value={name}></input>
+            <label>Description</label>
+            <input onChange={(e)=>setDescription(e.target.value)} value={description}></input>
+            <label>Phase</label>
+            <input onChange={(e)=>setPhase(e.target.value)} value={phase}></input>
+            <button type="submit" onClick={submit}>Button</button>
         </form>
     )
 }
