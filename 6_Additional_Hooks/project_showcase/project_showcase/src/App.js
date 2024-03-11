@@ -5,7 +5,6 @@ import ProjectList from "./components/projectList";
 // import projects from "./projects";
 import { useState, useEffect } from "react";
 
-
 function App() {
   const [search,setSearch] = useState("")
   const [mode, setMode] = useState(true)
